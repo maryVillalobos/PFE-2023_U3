@@ -6,11 +6,13 @@ import {
   RouterProvider,
 } from "react-router-dom"
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './index.css'
-import HolaMundo from './components/HolaMundo.jsx'
-import Calama from './components/Calama.jsx'
-import Ejercicio01 from './components/ejercicios/Ejercicio01.jsx'
-import Tareas from "./components/tareas/Tareas.jsx"
+import HolaMundo from './components/HolaMundo'
+import Calama from './components/Calama'
+import Ejercicio01 from './components/ejercicios/Ejercicio01'
+import Tareas from "./components/tareas/Tareas"
 
 const router=createBrowserRouter([
   {

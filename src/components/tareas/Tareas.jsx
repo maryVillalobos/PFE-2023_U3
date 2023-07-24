@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from 'react'
+
 
 const listaEjemplo = [
     {
@@ -15,7 +15,6 @@ const listaEjemplo = [
         nombre: 'Mimir'
     }
 ];
-
 const Tareas = () => {
     const [tareas, setTareas] = useState(listaEjemplo);
     const [nombretareas, setNombreTareas] = useState('');
@@ -23,7 +22,6 @@ const Tareas = () => {
     const handleModificarTarea = (evento) => {
         setNombreTareas(evento.target.value);
     }
-
     const handleAgregarTarea = (evento) => {
         if (nombretareas === '') {
             alert('Debe escribir una Tarea');
@@ -36,8 +34,13 @@ const Tareas = () => {
             setNombreTareas('');
         }
     }
+    const handleEliminarTarea= (id) =>{
+        let tareasFiltradas=tareas.filter(tarea=>{
+            return tarea.id !== id
 
-
+        })
+        setTareas(tareasFiltradas)
+    }
     return (
         <>
             <div className='row'>
@@ -58,7 +61,13 @@ const Tareas = () => {
                             tareas.map(function (tarea) {
                                 return (
                                     <li className='list-group-item' key={tarea.id}>
-                                        {tarea.nombre}
+                                        {tarea.nombre} 
+                                        <button type='button'  
+                                        className='btn btn-outline-danger btn-sm ms-3' 
+                                        onClick={()=>handleEliminarTarea(tarea.id)}
+                                        >Eliminar</button>
+                                
+    
                                     </li>
                                 );
                             })
